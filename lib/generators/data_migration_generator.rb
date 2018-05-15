@@ -17,6 +17,6 @@ class DataMigrationGenerator < Rails::Generators::NamedBase
   end
 
   def migration_class_name
-    @name.classify
+    @name.camelize
   end
 end
