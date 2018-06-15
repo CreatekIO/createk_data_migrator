@@ -1,41 +1,58 @@
-# DataMigrator
+# DataMigrator Useage
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/data_migrator`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Installing DataMigrator
 
-TODO: Delete this and the text above, and describe your gem
+Add the following to your Gemfile
 
-## Installation
+Add `data_migrator`
 
-Add this line to your application's Gemfile:
+Then run `bundle install`
 
-```ruby
-gem 'data_migrator'
+Once DataMigrator is installed you will need to generate the `data_migrations`
+table that stores the versioning of data migrations.
+
+Run the following from the command line. `rails generate data_migrator`
+
+Then run `rake db:migrate`
+
+DataMigrator should now be installed & ready to be used
+
+## Data Migration
+
+Data migrations are used within an application to make ammendments & changes to data. 
+For example if a set collection of `SomeModel`'s need their `status` changing to
+`active`.
+
+## Creating the migration itself 
+
+We can create data migrations using a pre-defined Rails generator that is ran
+from the command line. `rails generate data_migration change_some_models_state_to_active`.
+This will then create a data migration file within the `db/migrate_data` folder.
+
+By default this file will contain an `up` and a `down` method, although a
+`rollback` task not yet been implemented for data migrations.
+
+Enter some code that you would like to be run within the `up` method.
+
+```
+class ChangeSomeModelsStateToActive < ActiveRecord::Migration
+  def up
+    some_models = SomeModel.find(some_model_ids)
+    some_models.update_all(state: 'active')
+  end
+
+  def down
+  end
+end
 ```
 
-And then execute:
+## Running the migration
 
-    $ bundle
+Outstanding data migrations can be manually ran with the command `rake db:data:migrate`.
 
-Or install it yourself as:
+## Ensuring the same data migration is not run more than once
 
-    $ gem install data_migrator
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/data_migrator.
-
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
+The implementation is inherited from the Rails way of creating the usual database
+migrations. This means when a data migration is ran, a record of which migration 
+is inserted into the `data_migrations` table. This table is then checked prior
+to running any future data migration, thus stopping duplicate entries.
