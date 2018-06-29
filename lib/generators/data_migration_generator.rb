@@ -19,4 +19,9 @@ class DataMigrationGenerator < Rails::Generators::NamedBase
   def migration_class_name
     @name.camelize
   end
+
+  def migration_version
+    return unless Rails.version >= '5'
+    ['4.2']
+  end
 end
