@@ -8,9 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = CreatekDataMigrator::VERSION
   spec.authors       = ["Reiss Johnson"]
   spec.email         = ["reissjohnson@me.com"]
-
   spec.summary       = %q{A Gem used for creating data migration tasks}
-
+  spec.homepage      = 'https://github.com/createkio/createk_data_migrator'
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
