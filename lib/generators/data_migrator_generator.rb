@@ -1,12 +1,12 @@
 require 'rails/generators'
 require 'rails/generators/migration'
 
-class DataMigrator
+class CreatekDataMigrator
   class InstallGenerator < ::Rails::Generators::Base
     include Rails::Generators::Migration
     source_root File.expand_path('../templates', __FILE__)
     desc "add the migrations"
-    namespace 'data_migrator'
+    namespace 'createk_data_migrator'
 
     def self.next_migration_number(path)
       unless @prev_migration_nr

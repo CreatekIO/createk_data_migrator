@@ -1,4 +1,4 @@
-require 'data_migrator'
+require 'createk_data_migrator'
 
 namespace :db do
   desc 'Run Data Migrations'
@@ -8,7 +8,7 @@ namespace :db do
         old_table_name = ActiveRecord::Base.schema_migrations_table_name
         ActiveRecord::Base.schema_migrations_table_name = 'data_migrations'
 
-        DataMigrator.migrate
+        CreatekDataMigrator.migrate
       ensure
         ActiveRecord::Base.schema_migrations_table_name = old_table_name
       end

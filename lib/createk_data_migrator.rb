@@ -1,7 +1,7 @@
-require "data_migrator/version"
-require "data_migrator/railtie" if defined?(Rails)
+require "createk_data_migrator/version"
+require "createk_data_migrator/railtie" if defined?(Rails)
 
-class DataMigrator
+class CreatekDataMigrator
   class << self
     attr_writer :data_migrations_path
 

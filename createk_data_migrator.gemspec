@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'data_migrator/version'
+require 'createk_data_migrator/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "migrate_data"
-  spec.version       = DataMigrator::VERSION
+  spec.name          = "createk_data_migrator"
+  spec.version       = CreatekDataMigrator::VERSION
   spec.authors       = ["Reiss Johnson"]
   spec.email         = ["reissjohnson@me.com"]
 
