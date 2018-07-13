@@ -1,21 +1,21 @@
-# DataMigrator Useage
+# CreatekDataMigrator Useage
 
-## Installing DataMigrator
+## Installing CreatekDataMigrator
 
 Add the following to your Gemfile
 
-Add `data_migrator`
+Add `createk_data_migrator`
 
 Then run `bundle install`
 
-Once DataMigrator is installed you will need to generate the `data_migrations`
+Once CreatekDataMigrator is installed you will need to generate the `data_migrations`
 table that stores the versioning of data migrations.
 
 Run the following from the command line. `rails generate data_migrator`
 
 Then run `rake db:migrate`
 
-DataMigrator should now be installed & ready to be used
+CreatekDataMigrator should now be installed & ready to be used
 
 ## Data Migration
 
