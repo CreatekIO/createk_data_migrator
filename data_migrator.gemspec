@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'data_migrator/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "data_migrator"
+  spec.name          = "migrate_data"
   spec.version       = DataMigrator::VERSION
   spec.authors       = ["Reiss Johnson"]
   spec.email         = ["reissjohnson@me.com"]
