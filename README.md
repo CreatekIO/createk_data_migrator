@@ -1,4 +1,4 @@
-# CreatekDataMigrator Useage
+# CreatekDataMigrator Usage
 
 ## Installing CreatekDataMigrator
 
