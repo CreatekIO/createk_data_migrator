@@ -11,7 +11,7 @@ Then run `bundle install`
 Once CreatekDataMigrator is installed you will need to generate the `data_migrations`
 table that stores the versioning of data migrations.
 
-Run the following from the command line. `rails generate data_migrator`
+Run the following from the command line. `rails generate createk_data_migrator`
 
 Then run `rake db:migrate`
 
